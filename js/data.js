@@ -53,7 +53,7 @@ const MENU = [
                 nombre: "Napolitana con Ajo",
                 desc: "Rodajas de tomate fresco, ajo y perejil.",
                 precio: 14000,
-                imagen: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=60"
+                imagen: "https://acdn-us.mitiendanube.com/stores/004/080/332/products/14-c8ef10105222cfb42b17524982864705-1024-1024.webp"
             }
         ]
     },
