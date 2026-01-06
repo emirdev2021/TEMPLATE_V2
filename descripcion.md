@@ -1,41 +1,152 @@
-Modularidad Real: Separamos los DATOS (lo que cambia el cliente) de la LÓGICA (lo que hace que funcione).
+# 📘 GUÍA MAESTRA DE PERSONALIZACIÓN - TEMPLATE V2
 
-Sin Dependencias Raras: HTML, CSS (Tailwind vía CDN) y JS Puro. Nada de instalaciones complejas.# 📘 GUÍA DE PERSONALIZACIÓN - TEMPLATE V2
-
-Esta guía explica qué archivos modificar para adaptar este template a un nuevo cliente sin romper la lógica del sistema.
-
-## 📂 Archivos Importantes
-* `js/data.js`: **EL CEREBRO.** Aquí está el menú, precios y datos del dueño. (Se edita el 90% del tiempo).
-* `index.html`: **LA ESTRUCTURA.** Aquí cambias el "esqueleto" visual (Logo, textos fijos).
-* `js/app.js`: **EL MOTOR.** No tocar a menos que quieras cambiar cómo funciona el cálculo o WhatsApp.
+> **Documento de Referencia.** Utiliza esta guía cada vez que configures el sistema para un nuevo cliente.
 
 ---
 
-## 1️⃣ Paso 1: Datos del Negocio (Cliente Nuevo)
-**Archivo:** `js/data.js`
-Busca la constante `CONFIG` al principio del archivo.
+## 📂 1. Mapa de Archivos (¿Dónde toco?)
 
-* `nombre`: El nombre que sale en el WhatsApp y en el título.
-* `descripcion`: El slogan debajo del título.
-* `telefono`: **CRUCIAL.** El número que recibe los pedidos (formato internacional, sin el +).
-* `envio.costo`: Si cobran envío fijo, ponlo aquí.
+* **`js/data.js`** (🟢 **Zona Verde - Edición Frecuente**):
+    * Aquí vive **toda la información**: Menú, precios, fotos, nombre del local y teléfono.
+    * Es el archivo que editarás el 90% del tiempo.
+
+* **`index.html`** (🟡 **Zona Amarilla - Edición Visual**):
+    * Aquí está el esqueleto. Se edita para cambiar textos fijos (títulos, botones) y agregar fuentes externas.
+
+* **`js/app.js`** (🔴 **Zona Roja - Motor Lógico**):
+    * Aquí está la magia de los cálculos y WhatsApp. **NO TOCAR** a menos que sea estrictamente necesario.
 
 ---
 
-## 2️⃣ Paso 2: Cargar el Menú
-**Archivo:** `js/data.js`
-Busca la constante `MENU`.
+## ⚙️ 2. Configuración del Negocio
 
-### Estructura Básica:
-El menú se divide en **Categorías** (`Hamburguesas`, `Pizzas`).
-Cada categoría tiene **Productos**.
+Abre `js/data.js` y busca la constante `CONFIG`.
 
-### Cómo crear un producto simple:
 ```javascript
+const CONFIG = {
+    nombre: "Nombre del Local",      // Título en pestaña y WhatsApp
+    descripcion: "Slogan del local", // Texto bajo el título
+    telefono: "5491100000000",       // Formato internacional SIN '+'
+    moneda: "$",
+    envio: { costo: 1500, activo: true } // (Opcional)
+};
+
+🍔 3. Gestión del Menú
+El menú está en js/data.js dentro de MENU.
+
+A. Crear una Nueva Categoría
+Copia y pega este bloque dentro del array MENU:
 {
-    id: 101, // ID ÚNICO (No repetir nunca)
-    nombre: "Nombre del producto",
-    desc: "Descripción corta",
-    precio: 5000,
-    imagen: "LINK_DE_LA_FOTO"
+    id: "cat-nueva",    // ID único (ej: cat-bebidas)
+    nombre: "Bebidas",  // Nombre visible
+    icono: "🥤",        // Emoji
+    productos: []       // Array vacío para llenar luego
 }
+
+B. Agregar Productos (3 Tipos)
+Opción 1: Producto Simple (Ej: Pizza, Lata)
+
+{
+    id: 201, // ID ÚNICO
+    nombre: "Muzzarella",
+    desc: "Descripción del producto.",
+    precio: 8000,
+    imagen: "[https://link-foto.com/foto.jpg](https://link-foto.com/foto.jpg)"
+}
+
+Opción 2: Producto con Cantidad (Ej: Empanadas, Sushi)
+
+{
+    id: 301,
+    nombre: "Empanada Carne",
+    desc: "Frita y jugosa.",
+    precio: 1500,
+    imagen: "...",
+    opciones: {
+        tipo: "cantidad",           // Activa contador - / +
+        titulo: "¿Cuántas unidades?"
+    }
+}
+
+Opción 3: Producto Complejo (Ej: Hamburguesas con Variantes y Extras)
+
+{
+    id: 101,
+    nombre: "Burger Completa",
+    desc: "Con todo.",
+    precio: 10000, // Precio BASE
+    imagen: "...",
+    opciones: {
+        tipo: "variante",           // Activa Radio Buttons
+        titulo: "Elige tamaño:",
+        items: [                    // OBLIGATORIO elegir uno
+            { nombre: "Simple", precio: 0 },
+            { nombre: "Doble", precio: 2500 } // Suma al base
+        ],
+        extras: [                   // OPCIONAL (Checkboxes)
+            { nombre: "Bacon", precio: 1500 },
+            { nombre: "Huevo", precio: 1000 }
+        ]
+    }
+}
+
+🎨 4. Personalización Visual (Branding)
+A. Cambiar Colores (Método Rápido)
+El template usa TailwindCSS. Los colores se cambian reemplazando el nombre de la clase en todo el proyecto.
+
+Ejemplo: Cambiar de Amarillo a Rojo
+
+En VS Code, presiona CTRL + SHIFT + H (Búsqueda Global).
+
+Buscar: yellow-500 -> Reemplazar con: red-600 (Color principal).
+
+Buscar: yellow-600 -> Reemplazar con: red-700 (Color hover/oscuro).
+
+Dale a "Replace All".
+
+Colores Sugeridos:
+
+Rojo: red-600
+
+Azul: blue-600
+
+Verde: green-600
+
+Negro: gray-900
+
+Naranja: orange-500
+
+B. Cambiar Fuentes (Tipografía)
+Ve a Google Fonts, elige una fuente (ej: "Poppins") y copia el <link>.
+
+Pega el link en el <head> de tu index.html.
+
+En el <head>, busca la etiqueta <script src="https://cdn.tailwindcss.com"></script>.
+
+Justo debajo, agrega la configuración para usar la fuente:
+
+hmtl
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif'], // Reemplaza 'Poppins' por tu fuente
+        }
+      }
+    }
+  }
+</script>
+
+
+🚀 5. Flujo de Trabajo (Git & Deploy)
+Cada vez que termines de editar para un cliente:
+
+Guardar Todo: CTRL + S en los archivos editados.
+
+Terminal: Ejecuta en orden:
+git add .
+git commit -m "Configuración para Cliente X"
+git push
+
+Verificar: Abre el link de Vercel en tu celular y refresca la página.
