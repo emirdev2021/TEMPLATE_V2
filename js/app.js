@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // 2. RENDERIZADO (PINTAR EN PANTALLA)
 function renderizarEncabezado() {
     document.getElementById('nombre-local').innerText = CONFIG.nombre;
+   
 }
+
 
 function renderizarMenu() {
     const contenedor = document.getElementById('menu-container');
