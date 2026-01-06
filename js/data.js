@@ -2,7 +2,7 @@
 // CONFIGURACIÓN DEL NEGOCIO
 // =========================================
 const CONFIG = {
-    nombre: "Mimuza Burgers",
+    nombre: "Mimuza Berazategui",
     telefono: "5491122512344", // Tu número para pruebas
     moneda: "$",
     envio: {
@@ -53,7 +53,7 @@ const MENU = [
                 nombre: "Napolitana con Ajo",
                 desc: "Rodajas de tomate fresco, ajo y perejil.",
                 precio: 14000,
-                imagen: "https://images.unsplash.com/photo-1595854341625-f33ee10431b0?auto=format&fit=crop&w=500&q=60"
+                imagen: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=60"
             }
         ]
     },
@@ -67,14 +67,14 @@ const MENU = [
                 nombre: "Carne Cortada a Cuchillo",
                 desc: "Jugosas y con aceitunas.",
                 precio: 1800,
-                imagen: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=60"
+                imagen: "https://images.unsplash.com/photo-1619926340139-9a2e2245a64e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Repetimos img por ahora
             },
             {
                 id: 302,
                 nombre: "Jamón y Queso",
                 desc: "Clásica que nunca falla.",
-                precio: 1800,
-                imagen: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=60" // Repetimos img por ahora
+                precio: 1500,
+                imagen: "https://www.clarin.com/img/2021/04/12/WYz8Yr8tB_1256x620__1.jpg" 
             }
         ]
     }
