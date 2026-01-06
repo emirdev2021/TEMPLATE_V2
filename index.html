@@ -76,7 +76,31 @@
             </div>
         </div>
     </div>
+        
+<div id="modal-opciones" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 modal-overlay bg-black bg-opacity-50" onclick="cerrarModalOpciones()"></div>
+        
+        <div class="absolute bottom-0 md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 w-full md:w-96 bg-white rounded-t-xl md:rounded-xl shadow-2xl flex flex-col max-h-[90vh] animate-slide-up">
+            
+            <div class="p-4 border-b bg-gray-50 rounded-t-xl flex justify-between items-center">
+                <h3 id="modal-titulo-producto" class="font-bold text-lg text-gray-800">Opciones</h3>
+                <button onclick="cerrarModalOpciones()" class="text-gray-500 font-bold text-xl">&times;</button>
+            </div>
 
+            <div id="modal-contenido" class="p-6 overflow-y-auto space-y-4">
+                </div>
+
+            <div class="p-4 border-t bg-white">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-500">Total Adicional:</span>
+                    <span id="modal-precio-adicional" class="font-bold text-green-600 text-xl">+$0</span>
+                </div>
+                <button onclick="confirmarOpciones()" class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg shadow transition">
+                    CONFIRMAR Y AGREGAR
+                </button>
+            </div>
+        </div>
+    </div>
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
 </body>
