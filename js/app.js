@@ -259,8 +259,8 @@ function confirmarOpciones() {
     });
 
     actualizarBadge();
+    mostrarNotificacion(`Agregaste ${cantidad}x ${nombreFinal}`);
     cerrarModalOpciones();
-    mostrarNotificacion(`Agregaste ${cantidad}x ${productoSeleccionadoTemp.nombre}`);
 }
 
 function cerrarModalOpciones() {
@@ -359,7 +359,7 @@ function enviarPedido() {
 
 function mostrarNotificacion(texto) {
     const notif = document.createElement('div');
-    notif.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-full text-sm shadow-lg z-50 animate-bounce';
+    notif.className = 'fixed top-24 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-full text-sm shadow-lg z-[9999] animate-bounce';
     notif.innerText = texto;
     document.body.appendChild(notif);
     setTimeout(() => notif.remove(), 2000);

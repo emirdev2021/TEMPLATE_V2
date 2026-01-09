@@ -2,7 +2,7 @@
 // CONFIGURACIÓN DEL NEGOCIO
 // =========================================
 const CONFIG = {
-    nombre: "Mimuza Berazategui",
+    nombre: "Casa de comidas", // Nombre de tu negocio
     telefono: "5491122512344", // Tu número para pruebas
     moneda: "$",
     envio: {
@@ -42,7 +42,7 @@ const MENU = [
             },
             {
                 id: 102,
-                nombre: "La Mimuza Royal",
+                nombre: "Big Royal",
                 desc: "Doble carne, bacon, huevo, cebolla crispy.",
                 precio: 15000,
                 imagen: "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=60",
